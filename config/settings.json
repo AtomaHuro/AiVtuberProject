@@ -1,0 +1,54 @@
+{
+  "personas": {
+    "nova": {
+      "switch_expression": "Hotkey_NovaIntro",
+      "switch_voice_line": "Now entering Nova protocol.",
+      "recovery_voice_lines": {
+        "angry": "Systems calming. Hostility neutralized.",
+        "shy": "Anxiety decreasing. Regaining confidence.",
+        "glitch": "Stability restored. Glitch mode disengaged.",
+        "neutral": "Emotion stabilized. Returning to standby mode."
+      },
+      "visual_recovery_lines": {
+        "angry": "Retuning visuals to calm.",
+        "shy": "Expressions settling. Visuals normalized.",
+        "glitch": "Restoring stable frame output.",
+        "neutral": "Visual systems returning to baseline."
+      }
+    },
+    "gremlin": {
+      "switch_expression": "Hotkey_GremlinIntro",
+      "switch_voice_line": "Time to cause some chaos. Gremlin online!",
+      "recovery_voice_lines": {
+        "angry": "Gremlin rage subsiding. That was fun.",
+        "shy": "Awkwardness fading. Back to mischief.",
+        "glitch": "Reality glitch repaired. Let's mess with it again later.",
+        "neutral": "Back to chill gremlin mode."
+      },
+      "visual_recovery_lines": {
+        "angry": "Removing rage particles.",
+        "shy": "Shrinking blush module.",
+        "glitch": "Un-jittering visuals.",
+        "neutral": "Gremlin visuals normalized."
+      }
+    }
+  },
+  "vts": {
+    "happy": "Hotkey_HappyFace",
+    "angry": "Hotkey_Angry",
+    "shy": "Hotkey_Blush",
+    "glitch": "Hotkey_GlitchMode",
+    "fallback": "Hotkey_Neutral",
+    "blend_delay": 0.1,
+    "enable_voice": true,
+    "enable_sfx": true
+  },
+  "obs": {
+    "happy": "Scene_Happy",
+    "angry": "Scene_Angry",
+    "shy": "Scene_Shy",
+    "glitch": "Scene_GlitchMode",
+    "revert": "Scene_Idle",
+    "revert_delay": 10
+  }
+}

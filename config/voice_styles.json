@@ -1,0 +1,27 @@
+{
+  "angry": {
+    "pitch": 1.1,
+    "rate": 0.95,
+    "style": "serious"
+  },
+  "happy": {
+    "pitch": 1.2,
+    "rate": 1.05,
+    "style": "cheerful"
+  },
+  "shy": {
+    "pitch": 0.95,
+    "rate": 0.9,
+    "style": "calm"
+  },
+  "glitch": {
+    "pitch": 0.8,
+    "rate": 0.85,
+    "style": "whisper"
+  },
+  "neutral": {
+    "pitch": 1.0,
+    "rate": 1.0,
+    "style": "narration"
+  }
+}

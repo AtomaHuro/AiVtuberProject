@@ -1,0 +1,8 @@
+{
+  "cheer": "soundboard/cheer.mp3",
+  "boo": "soundboard/boo.mp3",
+  "laugh": "soundboard/laugh.mp3",
+  "lore_unlock": "soundboard/lore_unlock.mp3",
+  "raid_alert": "soundboard/raid_alert.mp3",
+  "mode_shift": "soundboard/mode_shift.mp3"
+}

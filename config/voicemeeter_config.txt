@@ -1,0 +1,13 @@
+VoicemeeterRemote.API.SetParameter("Strip[0].A1", 1);  // Mic to A1 (headphones)
+VoicemeeterRemote.API.SetParameter("Strip[1].A1", 1);  // VB-Cable In to A1
+VoicemeeterRemote.API.SetParameter("Bus[0].Device", "WDM:VB-Audio Cable A")  // A1 to VB-Cable
+VoicemeeterRemote.API.SetParameter("Bus[0].Mode.Normal", 1);  // Set to normal mode
+VoicemeeterRemote.API.SetParameter("Bus[0].Gain", 0.0);  // Default gain
+VoicemeeterRemote.API.SetParameter("Bus[0].Mute", 0);  // Ensure unmuted
+
+// Routing summary:
+// Hardware Input 1: your mic
+// Hardware Input 2: VB-Cable (AI voice)
+// A1 output: combined stream
+
+// Save this file and load with MacroButtons or using VoicemeeterRemote.exe

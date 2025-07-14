@@ -1,0 +1,22 @@
+{
+  "soft_gentle": {
+    "source": "CuteOverlay",
+    "duration": 4.0
+  },
+  "sharp_sassy": {
+    "source": "AngryOverlay",
+    "duration": 4.0
+  },
+  "flat": {
+    "source": "NeutralOverlay",
+    "duration": 4.0
+  },
+  "inquisitive": {
+    "source": "CuriousOverlay",
+    "duration": 4.0
+  },
+  "bold": {
+    "source": "ConfidentOverlay",
+    "duration": 4.0
+  }
+}

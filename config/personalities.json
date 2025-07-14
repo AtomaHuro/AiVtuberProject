@@ -1,0 +1,14 @@
+{
+  "cute": {
+    "voice": "soft_gentle",
+    "overlay": "CuteOverlay"
+  },
+  "gremlin": {
+    "voice": "sharp_sassy",
+    "overlay": "GremlinOverlay"
+  },
+  "sarcastic": {
+    "voice": "bold",
+    "overlay": "SarcasticOverlay"
+  }
+}

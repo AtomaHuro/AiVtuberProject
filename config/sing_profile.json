@@ -1,0 +1,50 @@
+{
+  "persona": "NeonAstra",
+  "voice_model": "elevenlabs",
+  "learning_sources": [
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "learned": true
+    }
+  ],
+  "melody_profiles": {
+    "melody_1752462254_6999": {
+      "source": {
+        "type": "youtube",
+        "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      },
+      "emotion_hint": "confident",
+      "tempo": 105,
+      "pitch_curve": [
+        64,
+        66,
+        67,
+        69,
+        70,
+        72,
+        74,
+        76,
+        77,
+        75,
+        73,
+        71,
+        70,
+        68,
+        66,
+        64
+      ],
+      "lyric_map": [
+        "la",
+        "la",
+        "da",
+        "dee",
+        "la",
+        "na",
+        "ha",
+        "woo"
+      ]
+    }
+  },
+  "version": "0.2"
+}

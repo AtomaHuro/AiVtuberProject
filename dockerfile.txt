@@ -1,0 +1,21 @@
+# Dockerfile for AI VTuber ChatBrain
+FROM python:3.10-slim
+
+# Set working directory
+WORKDIR /app
+
+# Copy files
+COPY . /app
+
+# Install dependencies
+RUN pip install --upgrade pip \
+    && pip install .
+
+# Optional: install FFmpeg and curl for TTS/audio
+RUN apt-get update && apt-get install -y ffmpeg curl && rm -rf /var/lib/apt/lists/*
+
+# Expose local API ports if needed
+EXPOSE 8001
+
+# Run main
+CMD ["chatbrain-run"]
