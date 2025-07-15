@@ -1,3 +1,5 @@
+<img width="1536" height="1024" alt="ChatGPT Image Jul 14, 2025, 08_35_01 PM" src="https://github.com/user-attachments/assets/eff918d6-4d19-433c-b0f6-d2f720c74bcc" />
+
 # 🧠 AI VTuber Discord Voice Listener
 
 A multi-personality, multi-speaker-enabled AI VTuber system designed for full emotion-aware interaction — blending Discord voice input, Twitch triggers, OBS/VTube Studio visuals, ChatBrain AI memory, singing synthesis, and real-time emotional states.
@@ -132,11 +134,7 @@ chatbrain_instances[guild_id] = ChatBrain(channel_id=f"discord_{guild_id}")
 
 ---
 
-## 🖼 GitHub Enhancements
-
-&#x20;&#x20;
-
-> ✨ You can also use [GitHub Pages](https://pages.github.com/) to present this README beautifully with themes.
+<img width="1024" height="1536" alt="ChatGPT Image Jul 14, 2025, 08_08_59 PM" src="https://github.com/user-attachments/assets/801d9403-ca91-4d7c-8c8d-f7f1a79a190a" />
 
 ---
 
