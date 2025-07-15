@@ -1,189 +1,146 @@
-# 🧠 Discord Voice Listener Bot for AI VTuber
+# 🧠 AI VTuber Discord Voice Listener
 
-This is a persistent, multi-speaker-enabled Discord voice listener designed to power a reactive AI VTuber — supporting full emotion-aware speech recognition, OBS + VTube Studio reaction control, lore integration, personality switching, and more.
+A multi-personality, multi-speaker-enabled AI VTuber system designed for full emotion-aware interaction — blending Discord voice input, Twitch triggers, OBS/VTube Studio visuals, ChatBrain AI memory, singing synthesis, and real-time emotional states.
 
 ---
 
-## ✅ Features Implemented
+## ✅ Core Features
 
-### 🔊 Real-Time Voice Capture
+### 🔊 Voice Capture & Emotion Detection
 
-- Listens to Discord voice channels with Whisper AI
-- Identifies individual speakers with per-user memory
-- Emotion estimation from speech tone (volume-based fallback)
+- 🎙️ Listens in real-time to Discord calls via Whisper
+- 🧠 Identifies speaker and saves per-user emotion memory
+- 💬 Adjusts tone and reaction based on detected vocal intensity or emotion
+- 👥 Supports multi-speaker interactions with unique per-user response shifts
 
-### 🎭 Dynamic Personality System
+### 🎭 Personality Modes & Expression Mapping
 
-- `/setmode <persona>` command toggles VTuber mode live
-- Auto-loads recovery phrases, tone, and expressions
-- Visual + narration confirmation (via VTS + TTS)
+- 🔁 `/setmode <persona>` live personality switching
+- 🧬 Persona-based tone, overlay, and voice line bundles
+- 🎨 Visual + voice confirmation via OBS/VTube Studio integration
 
 ### 📺 OBS & VTube Studio Integration
 
-- OBS scene switches based on AI-detected emotions (e.g., glitch → Scene\_Glitch)
-- VTS expression changes via WebSocket hotkeys (e.g., blush, angry, neutral)
-- Auto-revert system (resets scene + expression after emotion decay)
+- 🎥 Emotion-mapped scene switching (e.g. glitch, happy, sleepy)
+- 🎭 WebSocket-linked VTS expression overlays
+- 🕓 Auto-reset to neutral after decay timers
+- 🧠 Persistent expression memory & GUI controls
 
-### 🧠 ChatBrain + LLM Hook
+### 🧠 ChatBrain + LLM Interaction
 
-- On Twitch sub/follow/raid, triggers milestone scan from `lore_events.json`
+- 💬 Twitch + Discord chat interpreted through GPT/local LLM
+- 🧬 Context-aware lore injection and memory tags
+- 🔑 Trigger-word → tone/emotion/persona reaction
+- 🗃️ Fallback system for memory corruption, recovery, or persona shift
 
-- Plays mapped voice line from `lore_voice.json` (pitch, style, tone)
+### 🎶 AI Singing Engine
 
-- Optional scene or expression override using VTS/OBS
+- 🎵 Learns melodies from YouTube links
+- 🔊 Auto-generates voice previews using emotion-matched TTS
+- 🧑‍🎤 Sing mode includes `/previewmelody` + GUI dropdown
 
-- Integrates with `lore_events.json` to detect and respond to milestone triggers
+### 🎙️ TTS Integration (VoiceAI / ElevenLabs / Edge)
 
-- Twitch event listener updates emotional state and timeline milestones
+- 🗣️ Emotion-mapped pitch + speaking rate
+- 📁 Voice responses saved to `.mp3` or `.wav` for OBS
+- 🔁 Fallback/recovery speech triggered on failure
 
-- Memory unlocks tied to subscriber/follower/raid counts
+### 💻 GUI Dashboard
 
-- Emotion-labeled responses generated via ChatBrain (GPT/local LLM)
+- 🎛️ Dropdowns for mood/persona/expression
+- 🔁 Live expression state polling (every 5s)
+- ✅ Trigger feedback preview
 
-- Per-speaker emotional influence mapping
+### 🔒 Memory & Lore
 
-- Lore event triggers + context-aware replies
-
-### 🗂️ Persona-Aware Config
-
-- `settings.json` includes:
-  - persona-specific recovery voice lines
-  - VTS hotkey expression triggers
-  - OBS scene maps per emotion
-- Persona state persisted per server/guild
-
-### 💾 Memory & Logging
-
-### 🔒 Secure, Validated Memory System
-
-- Memory JSON files are encryption-ready
-
-- Prevents memory loss or corruption from crashes
-
-- Supports future version-based memory schema upgrades
-
-- Modular design allows for safe memory migrations
-
-- Per-user voice memory cache (`voice_speaker_cache.json`)
-
-- Emotion decay timers (`decay_*.json`) with auto-reset
-
-- All voice events & reverts logged in `logs/voicebot.log`
-
-### 🛠️ Error Handling & Fallback
-
-- If TTS fails, fallback prints to console + SFX
-- VTS and OBS errors caught with minimal impact
-- Custom emotion tone styles per speech intensity (e.g., whispery → pitch+rate)
+- 💾 Corruption-aware memory system (`memory_integrity.json`)
+- 🧬 Mood-driven lore progression
+- 📖 `lore_events.json` and `lore_voice.json` tied to Twitch milestones
+- 🔐 Encrypted/autosaved JSON files per session/channel
 
 ---
 
 ## 📁 Folder Structure
 
-```
+```txt
 ├── memory/
-│   └── lore_voice.json       # Voice line mapping per lore event
-```
-
-```
-├── memory/
-│   └── lore_events.json      # Timeline triggers and milestone states
-```
-
-```
+│   ├── corruption_persona.json   # Alternate personalities
+│   ├── corrupted_voice.json      # Glitched tone speech
+│   ├── memory_integrity.json     # Corruption % and logs
+│   ├── lore_events.json          # Lore triggers
+│   ├── lore_voice.json           # Emotion-linked voice packs
+│   ├── sing_profile.json         # Learned melodies
+│   ├── sing_menu.json            # GUI menu
+│   ├── last_expression.json      # Last emotion/face used
+│   └── decay_*.json              # Emotion decay
 ├── config/
-│   └── settings.json       # OBS/VTS hotkeys, persona data
-│   └── voice_styles.json   # Optional custom pitch/rate/style per tone
-├── memory/
-│   └── voice_speaker_cache_<guild>.json
-│   └── decay_<guild>.json
-│   └── persona_mode_<guild>.json
-├── soundboard/
-│   └── revert_sfx.mp3
-│   └── tts_fallback.mp3
+│   ├── settings.json             # Persona maps
+│   ├── vts_expressions.json      # Face triggers
+│   └── voice_styles.json         # Emotion → pitch/style
 ├── logs/
-│   └── voicebot.log
+│   └── voicebot.log              # Events + errors
+├── soundboard/
+│   ├── revert_sfx.mp3
+│   └── tts_fallback.mp3
 ```
 
 ---
 
-## 🔧 Requirements
+## 🧬 Memory Corruption Engine (Active)
 
-- Optional adaptive performance tuning
-
-  - Limits processing intensity to prevent CPU/GPU overload
-  - Graceful fallback to simpler TTS or expression flows on weak hardware
-
-- Python 3.9+
-
-- `discord.py`, `speechrecognition`, `websockets`, `obswebsocket`, `whisper`, `ffmpeg`, `ChatBrain`
-
-- OBS WebSocket v5+ installed + configured
-
-- VTube Studio with WebSocket plugin enabled
+- ⚠️ Triggers alternate persona + glitch tones when emotional overload occurs
+- 🎭 Injects corrupted dialogue into ChatBrain
+- ⏱️ Timed recovery, or mod-triggered restore
+- 📉 Decay logic auto-reduces corruption during calm
+- 🎙️ Glitched voices + visual glitch effects via OBS/VTS
 
 ---
 
-## 🧪 Roadmap / Optional Add-ons
+## 🧪 Optional & Advanced Modules
 
-### 🔄 Lore Runtime Engine: Trigger Logic
-
-- Monitors Twitch subs/follows/raids for lore triggers
-
-- Loads `lore_events.json` timeline and flags new `unlocked` states
-
-- Plays mapped narration from `lore_voice.json` using tone/style
-
-- Emits VTS hotkey or OBS scene override (optional)
-
-- Marks progress across sessions with versioning and unlock state persistence
-
-- 🗣️ Lore Voice Line Engine
-
-  - Reads from `lore_voice.json` to play event-specific narration
-  - Custom pitch, style, and emotion per milestone
-  - Works alongside `lore_events.json` and reacts to Twitch event triggers
-
-- 🔁 Lore Event Visual & Voice Reactions
-
-  - Automatically play voice lines and trigger VTS expressions during lore milestone unlocks
-  - Use emotion from `lore_events.json` to choose tone, pitch, and scene animation
-  - Optional OBS scene override for special lore events
-
-- 🧬 Lore Event Engine (Milestone Triggers)
-
-  - Script Twitch-based lore events (subs, follows, raids)
-  - Stores timeline entries and unlockable lore flags
-  - Auto-adjusts character tone and personality per lore milestone
-  - Ties into existing `lore_events` memory system
-
-- 🎙️ YouTube relay listener (YT → Discord text → ChatBrain)
-
-- 🧩 Voice activity detection to improve speaker ID
-
-- 🧬 Dynamic lore-based expression blending
-
-- 💬 Twitch chat relay → emotional triggers (milestones, redeems)
-
-- 🎛️ Web dashboard for real-time control (mode switches, emotion force)
-
-- 🔒 Mod-access toggles to restrict reactions/live voice
+- 📖 Lore Timeline Viewer GUI
+- 🎵 Singing Overlay Sync w/ Bouncing Lyrics
+- 📊 Stream Analytics (viewer mood tracking)
+- 🔄 Emotion Decay Speed Editor
+- 🔁 Randomized Auto-Moods
+- 🧩 Trigger Word to Emotion Mapping
+- 🌐 Stream Audience Voting (public mood system)
+- 🧠 Prompt History Viewer
+- 🗣️ Multi-language Voice Switch
 
 ---
 
-## 🧠 Maintainer Notes
+## 🧵 Dev Notes
 
-This bot is part of the **Ai VTuber Core Stack**, designed to mirror and expand on what Neuro-sama and other real-time AI avatars do, with extensible memory, emotion, and voice layering.
+> Part of the **Ai VTuber Core Stack**. Built for immersive streaming and emotionally reactive AI.
 
-For full integration, wire into the `ChatBrain` instance with:
+### 🧠 LLM Example Init
 
-```python
+```py
 chatbrain_instances[guild_id] = ChatBrain(channel_id=f"discord_{guild_id}")
 ```
 
 ---
 
-## 🧵 Contact / Support
+## 🛠️ Requirements
 
-Need help wiring into OBS or syncing VTS expressions? Just ask!
+- Python 3.9+
+- Discord.py, Whisper, ffmpeg
+- OBS WebSocket v5+, VTube Studio + plugin
+- Node.js (GUI)
+- ChatBrain (OpenAI or local LLM)
+
+---
+
+## 🖼 GitHub Enhancements
+
+&#x20;&#x20;
+
+> ✨ You can also use [GitHub Pages](https://pages.github.com/) to present this README beautifully with themes.
+
+---
+
+## 📞 Support
+
+Need help? Ping for OBS/VTS wiring, GUI linking, or Discord voice configs.
 
