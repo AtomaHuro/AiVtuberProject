@@ -2,7 +2,7 @@
 
 ## ✅ Core Feature Overview
 
-### 🎙️ Voice & Emotion Recognition
+## 🎙️ Voice & Emotion Recognition
 
 **Path:** `modules/voice/`
 
@@ -10,7 +10,7 @@
 - Emotion classification feeds into memory, voice modulation
 - Discord listener supports multi-speaker memory tagging
 
-### 🎭 Personality & Mode Switching
+## 🎭 Personality & Mode Switching
 
 **Path:** `modules/persona/`
 
@@ -18,7 +18,7 @@
 - Linked to TTS, visual, and behavioral modes
 - Viewers influence persona shifts with cooldowns
 
-### 🧠 Memory Engine (Persistent)
+## 🧠 Memory Engine (Persistent)
 
 **Path:** `memory/`, `modules/memory/`
 
@@ -26,7 +26,7 @@
 - Autosaves, version upgrades supported
 - Tracks mood, interactions, emotion score per user
 
-### 💬 ChatBrain + LLM Integration
+## 💬 ChatBrain + LLM Integration
 
 **Path:** `core/chatbrain.py`
 
@@ -42,7 +42,7 @@
 - Auto-expression and scene based on emotion
 - Glitch effects + transitions
 
-### 🎶 AI Singing System
+## 🎶 AI Singing System
 
 **Path:** `modules/singing/`
 
@@ -50,7 +50,7 @@
 - Emotion-based tone matching and lyric recall
 - Visual lyric bounce sync in progress
 
-### 🔊 TTS + Audio Engine
+## 🔊 TTS + Audio Engine
 
 **Path:** `modules/tts/`
 
@@ -58,7 +58,7 @@
 - Emotion → voice style, pitch, rate
 - .mp3 export for stream re-use, live queue playback
 
-### 📋 GUI Control Dashboard (React)
+## 📋 GUI Control Dashboard (React)
 
 **Path:** `gui/`
 
