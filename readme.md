@@ -1,4 +1,3 @@
----
 
 ## ✅ Core Feature Overview
 
@@ -75,8 +74,6 @@
 - Triggered on emotion overload or milestone
 - Auto-decay and mod-triggered restore
 - Voice + overlay glitch effects
-
----
 
 ## 🧪 Optional & Experimental Modules
 
