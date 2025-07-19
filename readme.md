@@ -1,122 +1,142 @@
-<img width="1536" height="1024" alt="ChatGPT Image Jul 14, 2025, 08_35_01 PM" src="https://github.com/user-attachments/assets/eff918d6-4d19-433c-b0f6-d2f720c74bcc" />
+---
 
-# 🧠 AI VTuber Discord Voice Listener
+## ✅ Core Feature Overview
 
-A multi-personality, multi-speaker-enabled AI VTuber system designed for full emotion-aware interaction — blending Discord voice input, Twitch triggers, OBS/VTube Studio visuals, ChatBrain AI memory, singing synthesis, and real-time emotional states.
+### 🎙️ Voice & Emotion Recognition
+
+**Path:** `modules/voice/`
+
+- Uses Whisper to detect tone, speaker identity
+- Emotion classification feeds into memory, voice modulation
+- Discord listener supports multi-speaker memory tagging
+
+### 🎭 Personality & Mode Switching
+
+**Path:** `modules/persona/`
+
+- Supports `/setmode` commands
+- Linked to TTS, visual, and behavioral modes
+- Viewers influence persona shifts with cooldowns
+
+### 🧠 Memory Engine (Persistent)
+
+**Path:** `memory/`, `modules/memory/`
+
+- JSON file per channel/server, encrypted
+- Autosaves, version upgrades supported
+- Tracks mood, interactions, emotion score per user
+
+### 💬 ChatBrain + LLM Integration
+
+**Path:** `core/chatbrain.py`
+
+- Injects memory, emotion, lore into GPT/local LLM
+- Auto-alters response tone based on emotional history
+- Glitched dialogue injection from corruption engine
+
+### 📺 OBS / VTube Studio Integration
+
+**Path:** `modules/obs/`, `modules/vts/`
+
+- WebSocket overlay effect triggers
+- Auto-expression and scene based on emotion
+- Glitch effects + transitions
+
+### 🎶 AI Singing System
+
+**Path:** `modules/singing/`
+
+- Melody learning from YT clips
+- Emotion-based tone matching and lyric recall
+- Visual lyric bounce sync in progress
+
+### 🔊 TTS + Audio Engine
+
+**Path:** `modules/tts/`
+
+- ElevenLabs (primary), Edge-TTS (backup), VoiceAI
+- Emotion → voice style, pitch, rate
+- .mp3 export for stream re-use, live queue playback
+
+### 📋 GUI Control Dashboard (React)
+
+**Path:** `gui/`
+
+- Mood toggles, corruption decay, trigger injects
+- Terminal UI aesthetic, auto-refresh log toggles
 
 ---
 
-## ✅ Core Features
+## 🧬 Memory Corruption Engine
 
-### 🔊 Voice Capture & Emotion Detection
+**Path:** `modules/corruption/`
 
-- 🎙️ Listens in real-time to Discord calls via Whisper
-- 🧠 Identifies speaker and saves per-user emotion memory
-- 💬 Adjusts tone and reaction based on detected vocal intensity or emotion
-- 👥 Supports multi-speaker interactions with unique per-user response shifts
-
-### 🎭 Personality Modes & Expression Mapping
-
-- 🔁 `/setmode <persona>` live personality switching
-- 🧬 Persona-based tone, overlay, and voice line bundles
-- 🎨 Visual + voice confirmation via OBS/VTube Studio integration
-
-### 📺 OBS & VTube Studio Integration
-
-- 🎥 Emotion-mapped scene switching (e.g. glitch, happy, sleepy)
-- 🎭 WebSocket-linked VTS expression overlays
-- 🕓 Auto-reset to neutral after decay timers
-- 🧠 Persistent expression memory & GUI controls
-
-### 🧠 ChatBrain + LLM Interaction
-
-- 💬 Twitch + Discord chat interpreted through GPT/local LLM
-- 🧬 Context-aware lore injection and memory tags
-- 🔑 Trigger-word → tone/emotion/persona reaction
-- 🗃️ Fallback system for memory corruption, recovery, or persona shift
-
-### 🎶 AI Singing Engine
-
-- 🎵 Learns melodies from YouTube links
-- 🔊 Auto-generates voice previews using emotion-matched TTS
-- 🧑‍🎤 Sing mode includes `/previewmelody` + GUI dropdown
-
-### 🎙️ TTS Integration (VoiceAI / ElevenLabs / Edge)
-
-- 🗣️ Emotion-mapped pitch + speaking rate
-- 📁 Voice responses saved to `.mp3` or `.wav` for OBS
-- 🔁 Fallback/recovery speech triggered on failure
-
-### 💻 GUI Dashboard
-
-- 🎛️ Dropdowns for mood/persona/expression
-- 🔁 Live expression state polling (every 5s)
-- ✅ Trigger feedback preview
-
-### 🔒 Memory & Lore
-
-- 💾 Corruption-aware memory system (`memory_integrity.json`)
-- 🧬 Mood-driven lore progression
-- 📖 `lore_events.json` and `lore_voice.json` tied to Twitch milestones
-- 🔐 Encrypted/autosaved JSON files per session/channel
+- Persona and response corruption logic
+- Triggered on emotion overload or milestone
+- Auto-decay and mod-triggered restore
+- Voice + overlay glitch effects
 
 ---
 
-## 📁 Folder Structure
+## 🧪 Optional & Experimental Modules
 
-```txt
+| Module              | Description                               |
+| ------------------- | ----------------------------------------- |
+| Lore Timeline GUI   | Visual tracker for unlocks & arcs         |
+| Remote Auth         | Mod verification via Twitch/YouTube login |
+| Prompt Analytics    | Logs token usage, viewer influence tags   |
+| Stream Cluster Sync | Multi-instance streamer support           |
+| Singing Overlay     | Auto-lyric bounce synced with emotion     |
+| Persona Matching    | Persona inference from viewer style       |
+
+---
+
+## 📁 Suggested Project Structure
+
+```bash
+├── core/
+│   └── chatbrain.py
+├── modules/
+│   ├── voice/
+│   ├── memory/
+│   ├── persona/
+│   ├── tts/
+│   ├── singing/
+│   ├── obs/
+│   ├── vts/
+│   └── corruption/
+├── auth/
+│   └── remote_auth_server.py
+├── gui/
+│   ├── CorruptionDecayPanel.jsx
+│   └── GlitchLogControlPanel.jsx
+├── tools/
+│   ├── RemoteControlTerminalUI.py
+│   ├── launch_auth_server.bat
+│   └── launch_remote_control.bat
 ├── memory/
-│   ├── corruption_persona.json   # Alternate personalities
-│   ├── corrupted_voice.json      # Glitched tone speech
-│   ├── memory_integrity.json     # Corruption % and logs
-│   ├── lore_events.json          # Lore triggers
-│   ├── lore_voice.json           # Emotion-linked voice packs
-│   ├── sing_profile.json         # Learned melodies
-│   ├── sing_menu.json            # GUI menu
-│   ├── last_expression.json      # Last emotion/face used
-│   └── decay_*.json              # Emotion decay
-├── config/
-│   ├── settings.json             # Persona maps
-│   ├── vts_expressions.json      # Face triggers
-│   └── voice_styles.json         # Emotion → pitch/style
-├── logs/
-│   └── voicebot.log              # Events + errors
-├── soundboard/
-│   ├── revert_sfx.mp3
-│   └── tts_fallback.mp3
+│   └── *.json
 ```
 
 ---
 
-## 🧬 Memory Corruption Engine (Active)
+## 📦 Remote Tools
 
-- ⚠️ Triggers alternate persona + glitch tones when emotional overload occurs
-- 🎭 Injects corrupted dialogue into ChatBrain
-- ⏱️ Timed recovery, or mod-triggered restore
-- 📉 Decay logic auto-reduces corruption during calm
-- 🎙️ Glitched voices + visual glitch effects via OBS/VTS
+- `launch_auth_server.bat` → Twitch/YT mod validation
+- `launch_remote_control.bat` → Remote terminal UI trigger interface
+- `requirements.txt`
 
 ---
 
-## 🧪 Optional & Advanced Modules
+## 💻 Requirements
 
-- 📖 Lore Timeline Viewer GUI
-- 🎵 Singing Overlay Sync w/ Bouncing Lyrics
-- 📊 Stream Analytics (viewer mood tracking)
-- 🔄 Emotion Decay Speed Editor
-- 🔁 Randomized Auto-Moods
-- 🧩 Trigger Word to Emotion Mapping
-- 🌐 Stream Audience Voting (public mood system)
-- 🧠 Prompt History Viewer
-- 🗣️ Multi-language Voice Switch
+- Python 3.9+
+- Node.js + React
+- Discord.py, Whisper, OBS WebSocket, ElevenLabs API
 
 ---
 
-## 🧵 Dev Notes
-
-> Part of the **Ai VTuber Core Stack**. Built for immersive streaming and emotionally reactive AI.
-
-### 🧠 LLM Example Init
+## 🧠 Dev Snippet
 
 ```py
 chatbrain_instances[guild_id] = ChatBrain(channel_id=f"discord_{guild_id}")
@@ -124,21 +144,9 @@ chatbrain_instances[guild_id] = ChatBrain(channel_id=f"discord_{guild_id}")
 
 ---
 
-## 🛠️ Requirements
+## 📥 Downloadable README
 
-- Python 3.9+
-- Discord.py, Whisper, ffmpeg
-- OBS WebSocket v5+, VTube Studio + plugin
-- Node.js (GUI)
-- ChatBrain (OpenAI or local LLM)
+This file is ready to export as `README.md` for your GitHub project.
 
----
-
-<img width="1024" height="1536" alt="ChatGPT Image Jul 14, 2025, 08_08_59 PM" src="https://github.com/user-attachments/assets/801d9403-ca91-4d7c-8c8d-f7f1a79a190a" />
-
----
-
-## 📞 Support
-
-Need help? Ping for OBS/VTS wiring, GUI linking, or Discord voice configs.
+> This README will continue to evolve as more modules are added. Be sure to sync whenever new core systems are implemented.
 
