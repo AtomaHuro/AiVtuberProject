@@ -1,5 +1,6 @@
 ## ✅ Core Feature Overview
 <img width="1536" height="1024" alt="ChatGPT Image Jul 14, 2025, 08_35_01 PM" src="https://github.com/user-attachments/assets/eff918d6-4d19-433c-b0f6-d2f720c74bcc" />
+
 ## 🎙️ Voice & Emotion Recognition
 
 **Path:** `modules/voice/`
