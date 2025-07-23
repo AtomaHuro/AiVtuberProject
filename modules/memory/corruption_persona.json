@@ -1,0 +1,11 @@
+{
+  "persona": "GlitchedEcho",
+  "trigger_threshold": 0.85,
+  "traits": ["chaotic", "fragmented", "self-aware"],
+  "voice_distortion": true,
+  "alternate_responses": [
+    "I remember... or do I?",
+    "What was real is no longer.",
+    "You shouldn't have triggered this."
+  ]
+}

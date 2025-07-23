@@ -1,0 +1,18 @@
+{
+  "cute": {
+    "traits": ["friendly", "playful", "positive"],
+    "voice_style": "high_pitch"
+  },
+  "gremlin": {
+    "traits": ["chaotic", "teasing", "mischievous"],
+    "voice_style": "raspy"
+  },
+  "cool": {
+    "traits": ["calm", "confident", "mature"],
+    "voice_style": "deep"
+  },
+  "glitched": {
+    "traits": ["corrupted", "fragmented", "unstable"],
+    "voice_style": "glitch"
+  }
+}

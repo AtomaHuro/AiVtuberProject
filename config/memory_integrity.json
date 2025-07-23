@@ -1,0 +1,14 @@
+{
+  "status": "minor_glitch",
+  "corruption_level": 11.0,
+  "glitch_count": 1,
+  "last_triggered": "2025-07-15T01:04:53.314294",
+  "last_recovery": null,
+  "history": [
+    {
+      "timestamp": "2025-07-15T01:04:53.314294",
+      "event": "+12.5% from test input",
+      "corruption": 12.5
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+[
+    {
+        "timestamp": "2025-07-22T12:00:00Z",
+        "trigger": "emotion_overload",
+        "persona": "Corrupted Echo",
+        "intensity": 0.85,
+        "resolution": "auto_decay"
+    },
+    {
+        "timestamp": "2025-07-22T12:15:00Z",
+        "trigger": "glitch_redeem",
+        "persona": "Static Whisper",
+        "intensity": 1.0,
+        "resolution": "manual_restore"
+    }
+]

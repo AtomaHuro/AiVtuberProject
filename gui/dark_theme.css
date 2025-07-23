@@ -1,0 +1,21 @@
+.panel {
+  background-color: #252525;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: auto;
+  max-width: 600px;
+}
+
+.meter {
+  margin: 1rem 0;
+}
+
+.log-output {
+  background: #111;
+  padding: 0.5rem;
+  height: 200px;
+  overflow-y: auto;
+  font-family: monospace;
+  font-size: 0.9rem;
+  border: 1px solid #333;
+}
