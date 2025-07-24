@@ -134,16 +134,16 @@
 ```bash
 ├── core/
 │   └── chatbrain.py                          # Central AI logic (memory, persona, speaking)
-│
+|
 ├── twitch/
 │   └── twitch_listener_bot.py                # Twitch EventSub + emotion hooks
-│
+|
 ├── youtube/
 │   └── youtube_listener_bot.py               # (Optional) YouTube Live Chat relay integration
-│
+|
 ├── discord/
 │   └── discord_listener.py                   # Discord voice & emotion listener
-│
+|
 ├── modules/
 │   ├── voice/
 │   │   ├── emotion_detector.py
@@ -170,7 +170,7 @@
 │       ├── glitch_injector.py
 │       ├── corruption_decay.py
 │       └── glitch_log.json
-│
+|
 ├── gui/
 │   ├── App.jsx                               # React GUI entry
 │   ├── Sidebar.jsx                           # Sidebar nav
@@ -178,7 +178,7 @@
 │   ├── GlitchLogControlPanel.jsx             # Displays glitched memories
 │   ├── style.css
 │   └── dark_theme.css
-│
+|
 ├── remote_control/
 │   ├── RemoteControlTerminalUI.py            # Remote mod/admin terminal
 │   ├── launch_auth_server.bat
@@ -188,10 +188,10 @@
 ├── configs/
 │   ├── decay_config.json                     # Settings for corruption decay over time
 │   └── persona_modes.json                    # All available preset modes and mappings
-│
+|
 ├── assets/
 │   └── audio_clips/                          # Saved generated voice clips (.wav/.mp3)
-│
+|
 ├── logs/
 │   └── glitch_log.json                       # Tracks glitch corruption events
 ├── auth/
