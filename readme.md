@@ -146,8 +146,8 @@
 |
 ├── modules/
 │   ├── voice/
-│   │   ├── emotion_detector.py
-│   │   └── discord_listener.py
+│   │   └──emotion_detector.py
+|
 │   ├── memory/
 │   │   ├── memory_manager.py                     # Memory system & viewer relationship storage
 │   │   ├── memory_integrity.json                 # Persistence & corruption awareness
