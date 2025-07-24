@@ -1,4 +1,4 @@
----
+<img width="1536" height="1024" alt="ChatGPT Image Jul 14, 2025, 08_35_01 PM" src="https://github.com/user-attachments/assets/eff918d6-4d19-433c-b0f6-d2f720c74bcc" />
 
 ## ✅ Core Feature Overview
 
@@ -133,52 +133,76 @@
 
 ```bash
 ├── core/
-│   └── chatbrain.py
+│   └── chatbrain.py                          # Central AI logic (memory, persona, speaking)
+│
+├── twitch/
+│   └── twitch_listener_bot.py                # Twitch EventSub + emotion hooks
+│
+├── youtube/
+│   └── youtube_listener_bot.py               # (Optional) YouTube Live Chat relay integration
+│
+├── discord/
+│   └── discord_listener.py                   # Discord voice & emotion listener
 │
 ├── modules/
 │   ├── voice/
 │   │   ├── emotion_detector.py
 │   │   └── discord_listener.py
 │   ├── memory/
-│   │   ├── memory_manager.py
-│   │   ├── memory_integrity.json
-│   │   └── corruption_persona.json
+│   │   ├── memory_manager.py                     # Memory system & viewer relationship storage
+│   │   ├── memory_integrity.json                 # Persistence & corruption awareness
+│   │   └── corruption_persona.json               # Alternate persona memory patterns
 │   ├── persona/
-│   │   ├── mode_switcher.py
-│   │   └── persona_profiles.json
+│   │   ├── mode_switcher.py                      # Personality mode triggers & logic
+│   │   └── persona_profiles.json                 # Profiles and emotional behaviors
 │   ├── tts/
-│   │   ├── eleven_wrapper.py
-│   │   ├── edge_fallback.py
-│   │   └── audio_router.py
+│   │   ├── eleven_wrapper.py                     # Primary TTS engine (ElevenLabs)
+│   │   ├── edge_fallback.py                      # Fallback TTS engine (Edge-TTS)
+│   │   └── audio_router.py                       # Handles playback routing (Voicemeeter/WMP/etc)
 │   ├── singing/
-│   │   ├── melody_learner.py
-│   │   └── phoneme_aligner.py
+│   │   ├── melody_learner.py                     # Adaptive AI singing from video/audio
+│   │   └── phoneme_aligner.py                    # Sync lyrics + pitch to voice
 │   ├── obs/
-│   │   └── obs_websocket_service.py
+│   │   └──obs_websocket_service.py              # OBS integration for emotional visuals
 │   ├── vts/
-│   │   └── vts_websocket_bridge.py
+│   │   └── vts_websocket_bridge.py               # VTube Studio WebSocket emotion triggers
 │   └── corruption/
 │       ├── glitch_injector.py
 │       ├── corruption_decay.py
 │       └── glitch_log.json
 │
 ├── gui/
-│   ├── App.jsx
-│   ├── Sidebar.jsx
-│   ├── CorruptionControlPanel.jsx
-│   ├── GlitchLogControlPanel.jsx
+│   ├── App.jsx                               # React GUI entry
+│   ├── Sidebar.jsx                           # Sidebar nav
+│   ├── CorruptionControlPanel.jsx            # Controls glitch mode + persona corruption
+│   ├── GlitchLogControlPanel.jsx             # Displays glitched memories
 │   ├── style.css
 │   └── dark_theme.css
 │
-├── auth/
-│   └── remote_auth_server.py
-│
-├── tools/
-│   ├── RemoteControlTerminalUI.py
+├── remote_control/
+│   ├── RemoteControlTerminalUI.py            # Remote mod/admin terminal
 │   ├── launch_auth_server.bat
 │   ├── launch_remote_control.bat
 │   └── system_monitor.bat
+|
+├── configs/
+│   ├── decay_config.json                     # Settings for corruption decay over time
+│   └── persona_modes.json                    # All available preset modes and mappings
+│
+├── assets/
+│   └── audio_clips/                          # Saved generated voice clips (.wav/.mp3)
+│
+├── logs/
+│   └── glitch_log.json                       # Tracks glitch corruption events
+├── auth/
+│   └── remote_auth_server.py
+|
+├── tools/
+│   ├── ngrok_setup.bat                       # Launch tunnel for Twitch EventSub
+│   └── ffmpeg_router.bat                     # Audio streaming support
 ```
+
+<img width="1024" height="1536" alt="ChatGPT Image Jul 14, 2025, 08_08_59 PM" src="https://github.com/user-attachments/assets/801d9403-ca91-4d7c-8c8d-f7f1a79a190a" />
 
 ---
 
@@ -208,9 +232,6 @@ chatbrain_instances[guild_id] = ChatBrain(channel_id=f"discord_{guild_id}")
 
 ---
 
-## 📥 Downloadable README
-
-This file is ready to export as `README.md` for GitHub.
 
 > ✅ This README is auto-updated as new modules and features are implemented. You may script auto-updates from the module generator pipeline.
 
